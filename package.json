@@ -7,8 +7,14 @@
     "name": "Dan Rynaski",
     "email": "daniel.rynaski@gmail.com"
   },
-  "scripts" : {
-    "test" : "mocha test.js"
+  "repository": {
+    "url": "https://github.com/drynaski/geobing"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "mocha test.js"
   },
   "keywords": [
     "microsoft",
@@ -21,6 +27,9 @@
   },
   "dependencies": {
     "underscore": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
   },
   "_id": "geobing@0.1.0",
   "_from": "geobing"
