@@ -2,7 +2,6 @@
   "name": "geobing",
   "description": "Node wrapper around the Bing Maps REST Services (http://msdn.microsoft.com/en-us/library/ff701715.aspx)",
   "version": "0.1.0",
-  "main": "./index.js",
   "author": {
     "name": "Dan Rynaski",
     "email": "daniel.rynaski@gmail.com"
