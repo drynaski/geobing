@@ -10,7 +10,7 @@
 
  You can also set the API key by setting the BING_API_KEY environment variable to your key. Or you can use the setKey method.
 ```javascript
-	$ geobing.setKey(YOUR_BING_API_KEY);
+ geobing.setKey(YOUR_BING_API_KEY);
 ```
 
 ## Examples
@@ -35,6 +35,6 @@ geobing.getInfoFromCoordinates({ lat : 41.50909759104252, lng : -72.694286182522
 });
 ```
 
-## Tests
+## Test
 
 	$ mocha test --key=[Your bing API key]
