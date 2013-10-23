@@ -22,7 +22,8 @@
     "underscore": "*"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "optimist": "~0.6.0"
   },
   "_from": "geobing",
   "readmeFilename": "README.md",

@@ -2,9 +2,10 @@
 * Geobing
 */
 
-var http = require( 'http' ),
+var http = require('http'),
   _ = require('underscore'),
-  querystring = require( 'querystring' );
+  querystring = require('querystring'),
+  utils = require('./utils');
 
 function Geobing () {
   this.key = null;
@@ -15,7 +16,9 @@ Geobing.prototype.setKey = function (key) {
 };
 
 Geobing.prototype.geocode = function (location, cbk) {
-  if(this.key === null) {
+  key = (this.key === null || typeof this.key === 'undefined') ? process.env.BING_API_KEY : this.key;
+
+  if(key === null) {
     return cbk(new Error('Please use setKey and provide a key'));
   }
 
@@ -24,7 +27,7 @@ Geobing.prototype.geocode = function (location, cbk) {
   }
 
   var options = _.extend({ q: location }, {
-      key : this.key
+      key : key
   });
 
   var params = {
@@ -52,6 +55,26 @@ Geobing.prototype.reverseGeocode = function ( lat, lng, cbk, opts ) {
   };
 
   return request( params, cbk );
+};
+
+Geobing.prototype.getCoordinates = function (location, cbk) {
+  this.geocode(location, function (err, result) {
+    var coordinates = utils.check(result, 'resourceSets.0.resources.0.point.coordinates');
+    if (!coordinates || coordinates.length < 2) {
+      return cbk(new Error('coordinates not found'), null);
+    }
+    return cbk(null, { lat : parseFloat(coordinates[0]), lng : parseFloat(coordinates[1]) });
+  });
+};
+
+Geobing.prototype.getInfoFromCoordinates = function (coordinates, cbk) {
+  this.reverseGeocode(coordinates.lat, coordinates.lng, function (err, result) {
+    var coordinates = utils.check(result, 'resourceSets.0.resources.0.point.coordinates');
+    if (!coordinates || coordinates.length < 2) {
+      return cbk(new Error('coordinates not found'), null);
+    }
+    return cbk(null, { lat : parseFloat(coordinates[0]), lng : parseFloat(coordinates[1]) });
+  });
 };
 
 function request ( options, cbk ) {
