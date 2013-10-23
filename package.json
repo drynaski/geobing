@@ -19,7 +19,8 @@
   ],
   "license": "BSD",
   "dependencies": {
-    "underscore": "*"
+    "underscore": "*",
+    "querystring": "*"
   },
   "devDependencies": {
     "mocha": "*",
