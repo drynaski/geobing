@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "Dan Rynaski <daniel.rynaski@gmail.com>",
   "repository": {
-    "url": "https://github.com/drynaski/geobing"
+    "url": "git://github.com/drynaski/geobing.git"
   },
   "engines": {
     "node": "*"
