@@ -16,23 +16,27 @@
 ## Examples
 
 ```javascript
+
 var geobing = require('geobing');
 
+geobing.setKey(process.env.BING_API_KEY);
+
 geobing.geocode('178 Laurel Brook Road, Middlefield, CT 06455', function (err, result) {
-	console.log(result); // raw response from service
+    console.log(result); // raw response from service
 });
 
 geobing.getCoordinates('178 Laurel Brook Road, Middlefield, CT 06455', function (err, coordinates) {
-	console.log('lat: ', coordinates.lat, 'lng: ', coordinates.lng); // lat: 41.50909759104252 lng: -72.69428618252277
+    console.log('lat: ', coordinates.lat, 'lng: ', coordinates.lng); // lat: 41.50909759104252 lng: -72.69428618252277
 });
 
 geobing.reverseGeocode(41.50909759104252, -72.69428618252277, function (err, result) {
-	console.log(result); // raw response from service
+    console.log(result); // raw response from service
 });
 
 geobing.getInfoFromCoordinates({ lat : 41.50909759104252, lng : -72.69428618252277 }, function (err, result) {
-	console.log(result.name); // '178 Laurel Brook Rd, Middlefield, CT 06455'
+  console.log(result.name); // '177 Laurel Brook Rd, Middlefield, CT 06455' (slightly inaccurate result)
 });
+
 ```
 
 ## Test
