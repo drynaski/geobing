@@ -69,11 +69,11 @@ Geobing.prototype.getCoordinates = function (location, cbk) {
 
 Geobing.prototype.getInfoFromCoordinates = function (coordinates, cbk) {
   this.reverseGeocode(coordinates.lat, coordinates.lng, function (err, result) {
-    var coordinates = utils.check(result, 'resourceSets.0.resources.0.point.coordinates');
+    var info = utils.check(result, 'resourceSets.0.resources.0');
     if (!coordinates || coordinates.length < 2) {
-      return cbk(new Error('coordinates not found'), null);
+      return cbk(new Error('info not found'), null);
     }
-    return cbk(null, { lat : parseFloat(coordinates[0]), lng : parseFloat(coordinates[1]) });
+    return cbk(null, info);
   });
 };
 

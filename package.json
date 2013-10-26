@@ -1,7 +1,7 @@
 {
   "name": "geobing",
   "description": "Node wrapper around the Bing Maps REST Services (http://msdn.microsoft.com/en-us/library/ff701715.aspx)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Dan Rynaski <daniel.rynaski@gmail.com>",
   "repository": {
     "url": "git://github.com/drynaski/geobing.git"
@@ -20,11 +20,11 @@
   "license": "BSD",
   "dependencies": {
     "underscore": "*",
-    "querystring": "*"
+    "querystring": "*",
+    "optimist": "~0.6.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "optimist": "~0.6.0"
+    "mocha": "*"
   },
   "_from": "geobing",
   "readmeFilename": "README.md",
